@@ -33,5 +33,7 @@ int main() {
         printf("Must remove these vulnerabilities before continuing...\n");
     }
 
-        return 0;
+    system("/bin/remove-malware");
+
+    return 0;
 }
