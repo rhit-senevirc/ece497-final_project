@@ -6,5 +6,3 @@ int main() {
 	system("poweroff");
 
 }
-
-
