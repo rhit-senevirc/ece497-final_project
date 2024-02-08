@@ -1,0 +1,36 @@
+config defaults
+	option syn_flood	1
+	option input		ACCEPT
+	option output		ACCEPT
+	option forward		ACCEPT
+# Uncomment this line to disable ipv6 rules
+#	option disable_ipv6	1
+
+config zone
+	option name		lan
+	list   network		'lan'
+	option input		ACCEPT
+	option output		ACCEPT
+	option forward		ACCEPT
+
+config zone
+	option name		wan
+	list   network		'wan'
+	list   network		'wan6'
+	option input		ACCEPT
+	option output		ACCEPT
+	option forward		ACCEPT
+	option masq		1
+	option mtu_fix		1
+
+config forwarding
+	option src		lan
+	option dest		wan
+
+# I never liked those "config rules" anyways...
+
+
+
+# include a file with users custom iptables rules
+config include
+	option path /etc/firewall.user
