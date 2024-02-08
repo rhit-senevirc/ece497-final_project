@@ -4,12 +4,16 @@
 
 int main(){
 	FILE *con = freopen("/dev/console", "w", stdout);
-	if(access("/dev/vda", F_OK) == 0){
-		while(1){
+	if(con != NULL){
+		
+		if(access("/dev/vda", F_OK) == 0){
+			while(1){
+				fprintf(con, "Flooding the main page.\n");
+			}
+		}
+	
+		else{
 			fprintf(con, "Flooding the main page.\n");
 		}
-	}
-	else{
-		fprintf(con, "Flooding the main page.\n");
 	}
 }
